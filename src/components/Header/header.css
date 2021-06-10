@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: space-between;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  max-width: 1026px;
+  margin: 0 auto;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.header__link {
+  color: white;
+  text-decoration: none;
+  margin-right: 30px;
+}
+
+.header__button {
+  border-radius: 3px;
+  background-color: #3ddc84;
+  color: black;
+  border: none;
+  width: 76px;
+  cursor: pointer;
+  min-height: 100%;
+}
+.header__container {
+  display: flex;
+  align-items: center;
+}
