@@ -9,28 +9,17 @@ function Techs() {
         На курсе веб-разработки мы освоили технологии, которые применили <span className='promo__title-span'> в
         дипломном проекте.</span>
       </p>
-      <nav className='promo__nav'>
-      <ul className='promo__nav-list'>
-        <li className='promo__nav-item'>
-          HTML
-        </li>
-        <li className='promo__nav-item'>
-          CSS
-        </li>
-        <li className='promo__nav-item'>
-          <a className='promo__nav-item-link'>Студент</a>
-        </li>
-        <li className='promo__nav-item'>
-          <a className='promo__nav-item-link'>О проекте</a>
-        </li>
-        <li className='promo__nav-item'>
-          <a className='promo__nav-item-link'>Технологии</a>
-        </li>
-        <li className='promo__nav-item'>
-          <a className='promo__nav-item-link'>Студент</a>
-        </li>
-      </ul>
-    </nav>
+      <div className='techs__list-container'>
+        <ul className='techs__list'>
+          <li className='techs__list-item'>HTML</li>
+          <li className='techs__list-item'>CSS</li>
+          <li className='techs__list-item'>JS</li>
+          <li className='techs__list-item'>React</li>
+          <li className='techs__list-item'>Git</li>
+          <li className='techs__list-item'>Express.js</li>
+          <li className='techs__list-item'>mongoDB</li>
+        </ul>
+      </div>
     </section>
   );
 }

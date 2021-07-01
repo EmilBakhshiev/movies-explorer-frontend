@@ -5,16 +5,7 @@ function NavTab() {
     <nav className='promo__nav'>
       <ul className='promo__nav-list'>
         <li className='promo__nav-item'>
-          <a className='promo__nav-item-link'>О проекте</a>
-        </li>
-        <li className='promo__nav-item'>
-          <a className='promo__nav-item-link'>Технологии</a>
-        </li>
-        <li className='promo__nav-item'>
-          <a className='promo__nav-item-link'>Студент</a>
-        </li>
-        <li className='promo__nav-item'>
-          <a className='promo__nav-item-link'>О проекте</a>
+          <a className='promo__nav-item-link' href='#about-project'>О проекте</a>
         </li>
         <li className='promo__nav-item'>
           <a className='promo__nav-item-link'>Технологии</a>
