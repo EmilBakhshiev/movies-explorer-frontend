@@ -1,18 +1,19 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 function Navigation() {
   const [isOpened, setIsOpened] = useState(false);
-    return (
-        <div className='navigation'>
+  function handleNavClick() {
+    setIsOpened((state) => !state);
+  }
+  return (
+    <div className='navigation'>
       <button
-        className={`isOpened navigation__burger-btn navigation__burger-btn_hidden hover no-display {
-          display: none;
-      } ${
+        className={`isOpened navigation__burger-btn navigation__burger-btn_hidden hover no-display ${
           isOpened && 'navigation__close-btn_active'
         }`}
         type='button'
-        
+        onClick={handleNavClick}
       ></button>
 
       <nav
@@ -53,14 +54,12 @@ function Navigation() {
             <NavLink
               className='navigation__list-item-link navigation__list-item-profile hover'
               to='/profile'
-            >
-
-            </NavLink>
+            ></NavLink>
           </li>
         </ul>
       </nav>
     </div>
-    )
+  );
 }
 
-export default Navigation
+export default Navigation;

@@ -6,7 +6,8 @@ function Footer() {
     return (
         <footer className={`footer ${
           (location.pathname === '/signup' && 'auth-no-display') ||
-          (location.pathname === '/signin' && 'auth-no-display')
+          (location.pathname === '/signin' && 'auth-no-display') ||
+          (location.pathname === '/profile' && 'auth-no-display')
         }`}>
 
         <p className='footer__text'>Учебный проект Яндекс.Практикум х BeatFilm.</p>
@@ -15,7 +16,7 @@ function Footer() {
           <ul className='footer__links-list'>
             <li className='footer__links-list-item'>
               <a
-                className='footer__link link'
+                className='footer__link hover'
                 href='https://praktikum.yandex.ru/profile/web/'
                 target='_blank'
                 rel='noreferrer'
@@ -25,7 +26,7 @@ function Footer() {
             </li>
             <li className='footer__links-list-item'>
               <a
-                className='footer__link link'
+                className='footer__link hover'
                 href='https://github.com/EmilBakhshiev'
                 target='_blank'
                 rel='noreferrer'
@@ -35,7 +36,7 @@ function Footer() {
             </li>
             <li className='footer__links-list-item'>
               <a
-                className='footer__link link'
+                className='footer__link hover'
                 href='https://www.facebook.com/emil.bahshiev.3'
                 target='_blank'
                 rel='noreferrer'

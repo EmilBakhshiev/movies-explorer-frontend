@@ -24,7 +24,10 @@
   border: none;
   width: 76px;
   cursor: pointer;
-  height: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-decoration: none;
+  text-align: center;
 }
 .header__container {
   display: flex;

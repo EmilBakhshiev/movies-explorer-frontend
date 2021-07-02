@@ -2,16 +2,15 @@ import React from 'react';
 import logo from '../../images/logo__header.svg';
 import { Link } from 'react-router-dom';
 
-
 function Auth({ title, name, children, isDisabled, textButton }) {
   return (
     <section className='auth'>
       <form className='auth__form' name={name} noValidate>
-        <img src={logo} alt='Логотип' className='auth__logo'/>
+        <img src={logo} alt='Логотип' className='auth__logo' />
         <h2 className='auth__title'>{title}</h2>
         <div className='auth__container'>{children}</div>
         <button
-          className='auth__submit-button hover'
+          className='auth__submit-btn hover'
           type='submit'
           disabled={isDisabled}
         >
@@ -21,7 +20,7 @@ function Auth({ title, name, children, isDisabled, textButton }) {
           <p className='auth__text'>
             {' '}
             Уже зарегистрированы?
-            <Link className='auth__link hover' exact to='/sign-in'>
+            <Link className='auth__link hover' exact to='/signin'>
               {' '}
               Войти
             </Link>
@@ -30,7 +29,7 @@ function Auth({ title, name, children, isDisabled, textButton }) {
           <p className='auth__text'>
             {' '}
             Ещё не зарегистрированы?
-            <Link className='auth__link' exact to='/sign-up'>
+            <Link className='auth__link' exact to='/signup'>
               {' '}
               Регистрация
             </Link>

@@ -1,12 +1,17 @@
+.auth {
+  display: flex;
+  flex-grow: 1;
+}
 
 .auth__form {
-  max-width: 396px;
-  padding: 70px 0 0;
+  width: 260px;
+  padding: 56px 0 0;
   margin: 0 auto;
 }
-.auth__logo{
-    text-align: left;
-    margin-bottom: 40px;
+.auth__logo {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 .auth__title {
@@ -15,14 +20,11 @@
   line-height: 29px;
   margin: 0;
   text-align: center;
+  margin-bottom: 80px;
 }
 
 .auth__container {
-  padding: 80px 0 157px;
-}
-
-.auth__container_signin {
-  padding-bottom: 267px;
+  margin-bottom: 157px;
 }
 
 .auth__label {
@@ -60,7 +62,6 @@
   outline: none;
 }
 
-
 .auth__input-invalid {
   color: #ee3465;
 }
@@ -74,11 +75,7 @@
   text-align: left;
 }
 
-.auth__input-err_hidden {
-  display: none;
-}
-
-.auth__submit-button {
+.auth__submit-btn {
   width: 100%;
   font-size: 12px;
   line-height: 15px;
@@ -86,23 +83,26 @@
   background-color: #4285f4;
   border: none;
   border-radius: 3px;
-  padding: 14px 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 14px;
   cursor: pointer;
 }
 
-.auth__submit-button:disabled {
+.auth__submit-btn:disabled {
   background-color: #dddcdc;
   color: #8b8b8b;
   cursor: default;
 }
 
+
 .auth__text {
   font-size: 12px;
   line-height: 15px;
   color: #8b8b8b;
-  padding: 14px 0 0;
   text-align: center;
   margin: 0;
+  margin-bottom: 30px;
 }
 
 .auth__link {
@@ -114,20 +114,22 @@
 
 @media screen and (min-width: 768px) {
   .auth__form {
-
-    
+    width: 396px;
+    padding: 232px 0;
   }
-
-  .auth__title {
-    text-align: left;
+  .auth__logo {
+    display: block;
+    margin: 0;
+    margin-bottom: 40px;
   }
 
   .auth__container {
-    padding: 40px 0 69px;
+    margin-bottom: 69px;
   }
 
-  .auth__container_signin {
-    padding-bottom: 179px;
+  .auth__title {
+    margin-bottom: 40px;
+    text-align: left;
   }
 
   .auth__text {
@@ -136,12 +138,18 @@
     padding-top: 16px;
   }
 
-  .auth__submit-button {
+  .auth__submit-btn {
     font-size: 14px;
     line-height: 17px;
     padding: 13px 0 15px;
   }
 }
-.auth-no-display{
+.auth-no-display {
   display: none;
+}
+@media screen and (min-width: 1280px){
+  .auth__form {
+    width: 396px;
+    padding: 70px 0;
+  }
 }

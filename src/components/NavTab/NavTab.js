@@ -8,10 +8,10 @@ function NavTab() {
           <a className='promo__nav-item-link' href='#about-project'>О проекте</a>
         </li>
         <li className='promo__nav-item'>
-          <a className='promo__nav-item-link'>Технологии</a>
+          <a className='promo__nav-item-link' href='#tech'>Технологии</a>
         </li>
         <li className='promo__nav-item'>
-          <a className='promo__nav-item-link'>Студент</a>
+          <a className='promo__nav-item-link' href='#about-me'>Студент</a>
         </li>
       </ul>
     </nav>

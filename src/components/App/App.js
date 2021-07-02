@@ -12,7 +12,7 @@ import Profile from '../Profile/Profile';
 function App() {
   return (
     <div className='App'>
-      <Header loggedIn={false}/>
+      <Header loggedIn={true}/>
       <Switch>
         <Route path='/signup'>
           <Register />

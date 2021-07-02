@@ -1,7 +1,7 @@
 import React from 'react';
 import headerLogo from '../../images/logo__header.svg';
 import Navigation from '../Navigation/Navigation';
-import { Route, useLocation } from 'react-router-dom';
+import { Route, useLocation, Link } from 'react-router-dom';
 
 function Header({ loggedIn }) {
   const location = useLocation();
@@ -18,10 +18,12 @@ function Header({ loggedIn }) {
         <Navigation />
       ) : (
         <div className='header__container'>
-          <a href='#' className='header__link'>
+            <Link className='header__link hover' exact to='/signup'>
             Регистрация
-          </a>
-          <button className='header__button'>Войти</button>
+            </Link>
+            <Link className='header__button hover' exact to='/signin'>
+            Войти
+            </Link>
         </div>
       )}
     </header>

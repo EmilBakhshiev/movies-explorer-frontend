@@ -30,3 +30,8 @@
     width: 96px;
     text-decoration: none;
 }
+@media screen and (max-width: 450px){
+    .promo__nav-item-link{
+       width: 82px;
+    } 
+}
