@@ -66,6 +66,12 @@
   font-size: 11px;
   line-height: 13px;
 }
+.profile__input_invalid{
+  color: #EE3465;
+}
+.profile__input:focus{
+  outline: none;
+}
 
 .profile__edit-btn {
   font-size: 12px;

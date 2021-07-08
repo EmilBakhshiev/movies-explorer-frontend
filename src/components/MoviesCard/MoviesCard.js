@@ -1,73 +1,53 @@
-import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import previewTrailer from '../../images/preview.jpg';
+import { useLocation } from 'react-router-dom';
 
-function MoviesCard() {
-  const [movieIsSaved, setMovieIsSaved] = useState(false);
-  function handleClick() {
-    setMovieIsSaved(!movieIsSaved);
-  }
+
+function MoviesCard({ movie, onLikeClick, checkBookmarkStatus}){
+  const location = useLocation();
+  const { nameRU, duration, image, trailer } = movie;
+
+    const isLiked = checkBookmarkStatus(movie);
+    const durationConverter = (duration) => {
+        const hours = Math.floor(duration / 60);
+        const minutes = duration % 60;
+        return `${hours > 0 ? hours + "ч " : ""}${minutes}м`;
+    };
+
+
+    function handleBookmarkClick() {
+        onLikeClick(movie, isLiked);
+    }
 
   return (
-    <Switch>
-      <Route path='/movies'>
         <li className='movie-card'>
           <div className='movie-card__container'>
             <div className='movie-card__info-container'>
-              <h3 className='movie-card__title'>33 слова о дизайне</h3>
+              <h3 className='movie-card__title'>{nameRU}</h3>
               <button
                 className={`movie-card__save-btn ${
-                  movieIsSaved && 'movie-card__save-btn_saved'
-                }  hover`}
+                  isLiked && 'movie-card__save-btn_saved'
+                }  hover ${
+                  location.pathname === '/saved-movies' && '.movie-card__save-btn_remove '
+                }`}
                 type='button'
-                onClick={handleClick}
+                onClick={handleBookmarkClick}
               ></button>
             </div>
-            <p className='movie-card__duration'>1ч 42м</p>
+            <p className='movie-card__duration'>{durationConverter(duration)}</p>
 
             <a
               className='movie-card__img-link hover'
-              href='#'
+              href={trailer} 
               target='_blank'
               rel='noreferrer'
             >
               <img
                 className='movie-card__img'
-                src={previewTrailer}
-                alt='33 слова о дизайне'
+                src={image}
+            alt={`Трейлер фильма ${nameRU}`}
               />
             </a>
           </div>
         </li>
-      </Route>
-      <Route path='/saved-movies'>
-        <li className='movie-card'>
-          <div className='movie-card__container'>
-            <div className='movie-card__info-container'>
-              <h3 className='movie-card__title'>33 слова о дизайне</h3>
-              <button
-                className='movie-card__save-btn_remove hover'
-                type='button'
-              ></button>
-            </div>
-            <p className='movie-card__duration'>1ч 42м</p>
-
-            <a
-              className='movie-card__img-link hover'
-              href='#'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <img
-                className='movie-card__img'
-                src={previewTrailer}
-                alt='33 слова о дизайне'
-              />
-            </a>
-          </div>
-        </li>
-      </Route>
-    </Switch>
   );
 }
 

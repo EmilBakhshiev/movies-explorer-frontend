@@ -1,7 +1,7 @@
 import React from 'react';
 import headerLogo from '../../images/logo__header.svg';
 import Navigation from '../Navigation/Navigation';
-import { Route, useLocation, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 function Header({ loggedIn }) {
   const location = useLocation();
@@ -10,7 +10,8 @@ function Header({ loggedIn }) {
     <header
       className={`header ${
         (location.pathname === '/signup' && 'auth-no-display') ||
-        (location.pathname === '/signin' && 'auth-no-display')
+        (location.pathname === '/signin' && 'auth-no-display') ||
+        (location.pathname === '*' && 'auth-no-display')
       }`}
     >
       <img src={headerLogo} alt='logo' />

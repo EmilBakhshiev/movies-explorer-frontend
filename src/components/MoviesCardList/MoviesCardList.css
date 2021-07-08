@@ -28,6 +28,16 @@
   color: white;
   margin: 80px auto 0;
 }
+.movies-card-list__btn_hidden {
+  display: none;
+}
+.movies-card-list__span {
+  text-align: center;
+  margin: 80px auto 0;
+}
+.movies-card-list__span_hidden {
+  display: none;
+}
 
 @media screen and (min-width: 768px) {
   .movies-card-list__grid {
