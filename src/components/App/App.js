@@ -80,6 +80,7 @@ function App() {
       .then((res) => {
         if (res) {
           handleLogin(email, password);
+          history.push('/movies');
         }
       })
       .catch((err) => {

@@ -19,10 +19,10 @@ function Header({ loggedIn }) {
         <Navigation />
       ) : (
         <div className='header__container'>
-            <Link className='header__link hover' exact to='/signup'>
+            <Link className='header__link hover' to='/signup'>
             Регистрация
             </Link>
-            <Link className='header__button hover' exact to='/signin'>
+            <Link className='header__button hover' to='/signin'>
             Войти
             </Link>
         </div>

@@ -16,7 +16,7 @@ function SearchForm({ handleSearch, setPreloader, setIsChecked, isLoading }) {
 
   function handleKeyword(evt) {
       handleChange(evt);
-      setKeyword(evt.target.value);
+      setKeyword(evt.target.value); 
   }
 
   function handleSubmit(event) {
@@ -32,7 +32,7 @@ function SearchForm({ handleSearch, setPreloader, setIsChecked, isLoading }) {
             name='name'
             className='search__form-input'
             placeholder='Фильм'
-            value={values.keyword || ""}
+            value={values.name || ""}
             onChange={handleKeyword}
             required
           ></input>
