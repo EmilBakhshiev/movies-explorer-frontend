@@ -1,5 +1,5 @@
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-import useFormWithValidation from '../../hooks/useFormValidation';
+import useFormWithValidation from '../../hooks/useValidationForm/useFormValidation';
 import { useState } from 'react';
 
 function SearchForm({ handleSearch, setPreloader, setIsChecked }) {

@@ -1,6 +1,6 @@
 import success from '../../images/success.svg';
 import fail from '../../images/fail.svg';
-import {SOMETHING_WENT_WRONG} from '../../utils/responseMessages'
+import { SOMETHING_WENT_WRONG } from '../../utils/responseMessages';
 
 function InfoTooltip({ status, tooltipMessage, onClose }) {
   return (
