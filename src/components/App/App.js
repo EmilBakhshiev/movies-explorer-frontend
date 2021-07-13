@@ -38,6 +38,7 @@ import { getMovies } from '../../utils/MoviesApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import NotFound from '../NotFound/NotFoud';
+import Tooltip from '../Tooltip/Tooltip';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -46,6 +47,8 @@ function App() {
   });
   const [loggedIn, setLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [tooltipStatus, setTooltipStatus] = useState(false);
+  const [tooltipMessage, setTooltipMessage] = useState('');
   const [apiResponseMessage, setResponseMessage] = useState(' ');
   const [allMovies, setAllmovies] = useState([]);
   const [searchMoviesResult, setSearchMoviesResult] = useState([]);
@@ -76,6 +79,7 @@ function App() {
   }
 
   function handleRegister({ name, email, password }) {
+    setIsLoading(true);
     createProfile(name, email, password)
       .then((res) => {
         if (res) {
@@ -94,10 +98,14 @@ function App() {
           return showResponseMessageTimer(SERVER_ERROR_MESSAGE);
         }
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   function handleLogin(email, password) {
+    setIsLoading(true);
     login(email, password)
       .then((res) => {
         if (res.token) {
@@ -118,10 +126,14 @@ function App() {
           return showResponseMessageTimer(SERVER_ERROR_MESSAGE);
         }
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   function handleUpdateUser(userData) {
+    setIsLoading(true);
     updateProfile(userData)
       .then((res) => {
         if (res) {
@@ -136,6 +148,11 @@ function App() {
       .catch((err) => {
         showResponseMessageTimer(SERVER_ERROR_MESSAGE);
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+        setTooltipStatus(true);
+        setTooltipMessage(SUCCSESS_UPDATE_MESSAGE);
       });
   }
 
@@ -313,6 +330,11 @@ function App() {
     tokenCheck();
   }, [history]);
 
+  function closeAllPopups() {
+    setTooltipStatus(false);
+    setTooltipMessage('');
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='App'>
@@ -325,14 +347,14 @@ function App() {
             {loggedIn ? (
               <Redirect to='/movies' />
             ) : (
-              <Register onRegister={handleRegister} />
+              <Register onRegister={handleRegister} isLoading={isLoading} />
             )}
           </Route>
           <Route path='/signin'>
             {loggedIn ? (
               <Redirect to='/movies' />
             ) : (
-              <Login onLogin={handleLogin} />
+              <Login onLogin={handleLogin} isLoading={isLoading} />
             )}
           </Route>
           <Route exact path='/'>
@@ -368,7 +390,6 @@ function App() {
             path='/profile'
             loggedIn={loggedIn}
             component={Profile}
-            userData={currentUser}
             apiResponseMessage={apiResponseMessage}
             onEditProfile={handleUpdateUser}
             onLogOut={handleLogOut}
@@ -378,6 +399,12 @@ function App() {
           </Route>
         </Switch>
         <Footer />
+
+        <Tooltip
+          status={tooltipStatus}
+          tooltipMessage={tooltipMessage}
+          onClose={closeAllPopups}
+        />
       </div>
     </CurrentUserContext.Provider>
   );

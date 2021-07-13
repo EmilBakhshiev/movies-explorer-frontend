@@ -1,8 +1,10 @@
 import React from 'react';
 import Auth from '../Auth/Auth';
-import useFormWithValidation from '../../hooks/useFormValidation';
+import useFormWithValidation from '../../hooks/useValidationForm/useFormValidation';
+import Preloader from '../Preloader/Preloader';
 
-function Register({ onRegister }) {
+
+function Register({ onRegister, isLoading }) {
   const { values, errors, isValid, handleChange, resetForm } =
   useFormWithValidation({});
 
@@ -16,11 +18,11 @@ function Register({ onRegister }) {
     <Auth
       title='Добро пожаловать!'
       name='sign-up'
-      isDisabled={false}
       textButton='Зарегистрироваться'
        onSubmit={handleOnSubmit}
-      disabled={!isValid}
+      isDisabled={!isValid}
     >
+      {isLoading && <Preloader/>}
       <label className='auth__label'>
         Имя
         <input

@@ -1,18 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import useFormWithValidation from '../../hooks/useFormValidation';
+import useFormWithValidation from '../../hooks/useValidationForm/useFormValidation';
 
-function Profile({ userData, onEditProfile, onLogOut }) {
-  const currentUser = useContext(CurrentUserContext);
+function Profile({ onEditProfile, onLogOut }) {
+  const { name, email } = useContext(CurrentUserContext);
   const { values, errors, isValid, handleChange, resetForm } =
-    useFormWithValidation({ email: currentUser.email, name: currentUser.name });
+    useFormWithValidation({ email: email, name: name });
 
   const [isValuesNotMatched, setisValuesNotMatched] = useState(false);
 
   function checkValues() {
     if (
-      currentUser.email === values.email &&
-      currentUser.name === values.name
+      email === values.email &&
+      name === values.name
     ) {
       setisValuesNotMatched(false);
     } else {
@@ -32,7 +32,7 @@ function Profile({ userData, onEditProfile, onLogOut }) {
   return (
     <section className='profile'>
       <form className='profile__form' onSubmit={handleOnSubmit} noValidate>
-        <h2 className='profile__title'>Привет, {userData.name}!</h2>
+        <h2 className='profile__title'>Привет, {name}!</h2>
         <div className='profile__container'>
           <label className='profile__label'>
             <div className='profile__label-container'>
@@ -48,8 +48,7 @@ function Profile({ userData, onEditProfile, onLogOut }) {
                 minLength='2'
                 maxLength='200'
                 required
-                value={values.name || ''}
-                defaultValue={currentUser.name}
+                defaultValue={name || ''}
                 onChange={handleChange}
               />
             </div>
@@ -71,6 +70,8 @@ function Profile({ userData, onEditProfile, onLogOut }) {
                 minLength='1'
                 maxLength='40'
                 required
+                defaultValue={email || ''}
+                onChange={handleChange}
               />
             </div>
 
@@ -84,7 +85,7 @@ function Profile({ userData, onEditProfile, onLogOut }) {
           className='profile__edit-btn hover'
           type='submit'
           onClick={handleOnSubmit}
-          disabled={!isValid && !isValuesNotMatched}
+          disabled={!isValid || !isValuesNotMatched}
         >
           Редактировать
         </button>

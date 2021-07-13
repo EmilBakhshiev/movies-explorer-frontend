@@ -9,3 +9,4 @@ export const MIN_NUMBER_MOVIES = 5;
 
 export const ADD_MAX_NUMBER_MOVIES = 3;
 export const ADD_MIN_NUMBER_MOVIES = 2;
+

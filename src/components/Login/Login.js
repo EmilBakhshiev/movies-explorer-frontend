@@ -1,8 +1,9 @@
 import React from 'react';
 import Auth from '../Auth/Auth';
-import useFormWithValidation from '../../hooks/useFormValidation';
+import useFormWithValidation from '../../hooks/useValidationForm/useFormValidation';
+import Preloader from '../Preloader/Preloader';
 
-function Login({ onLogin }) {
+function Login({ onLogin, isLoading }) {
   const { values, errors, isValid, handleChange, resetForm } =
   useFormWithValidation({});
 
@@ -16,11 +17,11 @@ function Login({ onLogin }) {
     <Auth
       title='Рады видеть!'
       name='sign-in'
-      isDisabled={false}
       textButton='Войти'
       onSubmit={handleOnSubmit}
-      disabled={!isValid}
+      isDisabled={!isValid}
     >
+      {isLoading && <Preloader/>}
       <label className='auth__label'>
         E-mail
         <input
@@ -28,7 +29,7 @@ function Login({ onLogin }) {
           type='email'
           name='email'
           placeholder='E-mail'
-          className={`auth__input ${errors.name && 'auth__input-invalid'}`}
+          className={`auth__input ${errors.email && 'auth__input-invalid'}`}
           minLength='1'
           maxLength='40'
           required

@@ -2,7 +2,7 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import useFormWithValidation from '../../hooks/useFormValidation';
 import { useState } from 'react';
 
-function SearchForm({ handleSearch, setPreloader, setIsChecked, isLoading }) {
+function SearchForm({ handleSearch, setPreloader, setIsChecked }) {
   const { values, errors, isValid, handleChange } =
   useFormWithValidation({});
 

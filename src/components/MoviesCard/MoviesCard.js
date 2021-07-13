@@ -26,7 +26,7 @@ function MoviesCard({ movie, onLikeClick, checkBookmarkStatus}){
                 className={`movie-card__save-btn ${
                   isLiked && 'movie-card__save-btn_saved'
                 }  hover ${
-                  location.pathname === '/saved-movies' && '.movie-card__save-btn_remove '
+                  location.pathname === '/saved-movies' && 'movie-card__save-btn_remove '
                 }`}
                 type='button'
                 onClick={handleBookmarkClick}
